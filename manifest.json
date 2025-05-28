@@ -1,0 +1,11 @@
+{
+  "id": "encryptall",
+  "name": "EncryptAll",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Encrypt and decrypt files in your vault",
+  "author": "shensmart",
+  "authorUrl": "https://github.com/shensmart",
+  "fundingUrl": "https://paypal.me/shensmart",
+  "isDesktopOnly": false
+}
