@@ -25,29 +25,17 @@ export class ProgressBar extends Modal {
         contentEl.empty();
 
         // 创建标题
-        const titleEl = contentEl.createEl('h2', { text: this.title });
-        titleEl.style.textAlign = 'center';
+        const titleEl = contentEl.createEl('h2', { text: this.title, cls: 'modal-title' });
 
         // 创建进度条容器
         const progressContainer = contentEl.createEl('div', { cls: 'progress-container' });
-        progressContainer.style.width = '100%';
-        progressContainer.style.height = '20px';
-        progressContainer.style.backgroundColor = '#eee';
-        progressContainer.style.borderRadius = '10px';
-        progressContainer.style.overflow = 'hidden';
-        progressContainer.style.margin = '20px 0';
 
         // 创建进度条
         this.progressBarEl = progressContainer.createEl('div', { cls: 'progress-bar' });
         this.progressBarEl.style.width = `${this.progress}%`;
-        this.progressBarEl.style.height = '100%';
-        this.progressBarEl.style.backgroundColor = '#4CAF50';
-        this.progressBarEl.style.transition = 'width 0.3s ease-in-out';
 
         // 创建文本显示
-        this.textEl = contentEl.createEl('div', { text: this.text });
-        this.textEl.style.textAlign = 'center';
-        this.textEl.style.marginTop = '10px';
+        this.textEl = contentEl.createEl('div', { text: this.text, cls: 'modal-text' });
     }
 
     updateProgress(progress: number, text?: string) {

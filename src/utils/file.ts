@@ -58,7 +58,7 @@ export class FileManager {
         try {
             const tempFile = this.app.vault.getAbstractFileByPath(tempPath);
             if (tempFile instanceof TFile) {
-                await this.app.vault.delete(tempFile);
+                await this.app.fileManager.trashFile(tempFile);
             }
         } catch (error) {
             console.error(`[EncryptAll] Failed to cleanup temp file: ${tempPath}`, error);
@@ -328,7 +328,7 @@ export class FileManager {
             for (const { tempPath, encryptedPath, originalPath } of tempFiles.values()) {
                 const originalFile = this.app.vault.getAbstractFileByPath(originalPath);
                 if (originalFile instanceof TFile) {
-                    await this.app.vault.delete(originalFile);
+                    await this.app.fileManager.trashFile(originalFile);
                 }
                 const encryptedBuffer = fs.readFileSync(tempPath);
                 await this.app.vault.createBinary(encryptedPath, encryptedBuffer);
@@ -442,7 +442,7 @@ export class FileManager {
                 // 删除加密附件
                 const encryptedFile = this.app.vault.getAbstractFileByPath(encryptedPath);
                 if (encryptedFile instanceof TFile) {
-                    await this.app.vault.delete(encryptedFile);
+                    await this.app.fileManager.trashFile(encryptedFile);
                 }
                 // 读取临时文件内容
                 const decryptedBuffer = fs.readFileSync(tempPath);

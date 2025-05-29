@@ -25,7 +25,7 @@ export class PasswordModal extends Modal {
         const t = getLanguage(this.plugin.settings.language).encrypt;
 
         // 创建标题
-        const titleEl = contentEl.createEl('h2', { text: t.modal.title });
+        const titleEl = contentEl.createEl('h2', { text: t.modal.title, cls: 'modal-title' });
         titleEl.style.textAlign = 'center';
 
         // 创建表单容器
@@ -36,7 +36,7 @@ export class PasswordModal extends Modal {
         formContainer.style.gap = '1rem';
 
         // 创建输入框容器
-        const inputContainer = formContainer.createEl('div');
+        const inputContainer = formContainer.createEl('div', { cls: 'input-container' });
         inputContainer.style.width = '100%';
         inputContainer.style.display = 'flex';
         inputContainer.style.justifyContent = 'center';
@@ -50,7 +50,7 @@ export class PasswordModal extends Modal {
         this.inputEl.style.width = '80%';
 
         // 创建按钮容器
-        const buttonContainer = formContainer.createEl('div');
+        const buttonContainer = formContainer.createEl('div', { cls: 'button-container' });
         buttonContainer.style.display = 'flex';
         buttonContainer.style.gap = '1rem';
         buttonContainer.style.justifyContent = 'center';
