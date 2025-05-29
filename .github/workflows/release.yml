@@ -37,7 +37,8 @@ jobs:
           echo "Copying files..."
           cp main.js manifest.json styles.css ${{ env.PLUGIN_NAME }}/
           echo "Creating zip file..."
-          VERSION=${GITHUB_REF#refs/tags/v}
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "Version: $VERSION"
           zip -r ${{ env.PLUGIN_NAME }}-$VERSION.zip ${{ env.PLUGIN_NAME }}
           echo "Listing files..."
           ls -la
@@ -52,7 +53,7 @@ jobs:
             main.js
             manifest.json
             styles.css
-            ${{ env.PLUGIN_NAME }}-${{ github.ref_name#refs/tags/v }}.zip
+            ${{ env.PLUGIN_NAME }}-${{ github.ref_name }}.zip
           body: |
             ## Release Notes
             
