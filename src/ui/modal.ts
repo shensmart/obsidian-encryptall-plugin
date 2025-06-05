@@ -26,20 +26,12 @@ export class PasswordModal extends Modal {
 
         // 创建标题
         const titleEl = contentEl.createEl('h2', { text: t.modal.title, cls: 'modal-title' });
-        titleEl.style.textAlign = 'center';
 
         // 创建表单容器
         const formContainer = contentEl.createEl('div', { cls: 'password-modal-container' });
-        formContainer.style.display = 'flex';
-        formContainer.style.flexDirection = 'column';
-        formContainer.style.alignItems = 'center';
-        formContainer.style.gap = '1rem';
 
         // 创建输入框容器
         const inputContainer = formContainer.createEl('div', { cls: 'input-container' });
-        inputContainer.style.width = '100%';
-        inputContainer.style.display = 'flex';
-        inputContainer.style.justifyContent = 'center';
 
         // 创建输入框
         this.inputEl = inputContainer.createEl('input', {
@@ -47,13 +39,9 @@ export class PasswordModal extends Modal {
             placeholder: this.message,
             value: '',
         });
-        this.inputEl.style.width = '80%';
 
         // 创建按钮容器
         const buttonContainer = formContainer.createEl('div', { cls: 'button-container' });
-        buttonContainer.style.display = 'flex';
-        buttonContainer.style.gap = '1rem';
-        buttonContainer.style.justifyContent = 'center';
 
         // 创建按钮
         const submitButton = buttonContainer.createEl('button', {
